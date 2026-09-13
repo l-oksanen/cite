@@ -7,14 +7,21 @@ attribute says that a declaration *elsewhere* formalises such node or its part:
 
 ```lean
 module
-import Cite
-import Mathlib.Analysis.InnerProductSpace.l2Space
+import Cite.Attribute
+public import Mathlib.Analysis.InnerProductSpace.l2Space
 
 attribute [cite] exists_hilbertBasis
 attribute [cite] HilbertBasis.hasSum_repr
 ```
 
 The attribute itself knows nothing about the LaTeX document. 
+
+The header above is the one `lake shake` accepts, verified on
+`leanprover/lean4:v4.34.0-rc1`. A citation is exported with the module, so
+`lake shake` counts it as a public use of the cited declaration's module and
+asks for `public import` there; a plain `import` is reported for upgrading.
+It also asks for the narrower `import Cite.Attribute` in place of
+`import Cite`, and a `-- shake: keep` marker does not silence that report.
 
 The library has no dependencies and pins no toolchain.
 
