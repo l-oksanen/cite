@@ -17,7 +17,7 @@ attribute [cite] HilbertBasis.hasSum_repr
 The attribute itself knows nothing about the LaTeX document. 
 
 The header above is the one `lake shake` accepts, verified on
-`leanprover/lean4:v4.34.0-rc1`. 
+`leanprover/lean4:v4.35.0` with Mathlib `v4.35.0`.
 
 The library has no dependencies and pins no toolchain.
 
